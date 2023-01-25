@@ -15,15 +15,14 @@ import java.io.ObjectInputStream;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         stage.setTitle("Hello!");
-        Button button = new Button();
-        button.setText("Receiver Button");
         StackPane root = new StackPane();
-        root.getChildren().add(button);
+        root.getChildren().add(fxmlLoader.load());
         Button senderButton = getButton();
         root.getChildren().add(senderButton);
-        StackPane.setAlignment(senderButton, Pos.TOP_LEFT);
+        StackPane.setAlignment(senderButton, Pos.BOTTOM_CENTER);
+        StackPane.setMargin(senderButton, new javafx.geometry.Insets(0, 0, 50, 0));
         Scene scene = new Scene(root, 320, 240);
         stage.setScene(scene);
         stage.show();
@@ -46,7 +45,7 @@ public class HelloApplication extends Application {
             ex.printStackTrace();
         }
 
-        return new Button(button.getButton());
+        return new Button(button.getText());
     }
 
     public static void main(String[] args) {
