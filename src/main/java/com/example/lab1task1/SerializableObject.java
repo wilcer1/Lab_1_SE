@@ -24,4 +24,5 @@ public class SerializableObject implements Serializable {
 
     }
 
+
 }

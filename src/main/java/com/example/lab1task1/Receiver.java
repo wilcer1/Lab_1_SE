@@ -45,7 +45,7 @@ public class Receiver extends Application {
             ex.printStackTrace();
         }
 
-        return new Button(button.getButton());
+        return new Button(button.getText());
     }
 
     public static void main(String[] args) {
