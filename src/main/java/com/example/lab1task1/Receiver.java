@@ -16,13 +16,10 @@ public class Receiver extends Application {
     public void start(Stage stage) throws IOException {
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         stage.setTitle("Hello!");
-        Button button = new Button();
-        button.setText("Receiver Button");
         StackPane root = new StackPane();
-        root.getChildren().add(button);
         Button senderButton = getButton();
         root.getChildren().add(senderButton);
-        StackPane.setAlignment(senderButton, Pos.TOP_LEFT);
+        StackPane.setAlignment(senderButton, Pos.CENTER);
         Scene scene = new Scene(root, 320, 240);
         stage.setScene(scene);
         stage.show();
