@@ -18,12 +18,11 @@ import java.net.Socket;
 public class Receiver extends Application {
     private StackPane root;
     private Button receivedButton;
-    private Button previousButton;
 
     @Override
     public void start(Stage stage) throws IOException {
         root = new StackPane();
-        FXMLLoader fxmlLoader = new FXMLLoader(Receiver.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         stage.setTitle("Hello!");
         root.getChildren().add(fxmlLoader.load());
         Scene scene = new Scene(root, 320, 240);
