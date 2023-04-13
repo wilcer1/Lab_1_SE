@@ -1,7 +1,5 @@
-package com.example.lab1task1;
+package com.example.lab1task2;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 import java.io.Serializable;
@@ -23,6 +21,5 @@ public class SerializableObject implements Serializable {
         this.text = button.getText();
 
     }
-
 
 }
