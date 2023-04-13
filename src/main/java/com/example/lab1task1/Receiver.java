@@ -1,15 +1,19 @@
 package com.example.lab1task1;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Stack;
 
 public class Receiver extends Application {
     @Override
@@ -18,13 +22,22 @@ public class Receiver extends Application {
         stage.setTitle("Hello!");
         Button button = new Button();
         button.setText("Receiver Button");
-        StackPane root = new StackPane();
-        root.getChildren().add(button);
-        Button senderButton = getButton();
-        root.getChildren().add(senderButton);
-        StackPane.setAlignment(senderButton, Pos.TOP_LEFT);
+        BorderPane root = new BorderPane();
+        root.setTop(button);
         Scene scene = new Scene(root, 320, 240);
         stage.setScene(scene);
+
+        ListView<Button> listView = new ListView<>();
+        BorderPane.setAlignment(listView, Pos.BOTTOM_CENTER);
+        BorderPane.setMargin(listView, new Insets(10));
+        button.setOnAction(e -> {
+            Button senderButton = getButton();
+            listView.getItems().add(senderButton);
+            if (!root.getChildren().contains(listView)) {
+                root.setCenter(listView);
+            }
+        });
+
         stage.show();
     }
     public static Button getButton(){
