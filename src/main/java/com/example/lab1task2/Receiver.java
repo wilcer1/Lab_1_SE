@@ -34,7 +34,7 @@ public class Receiver extends Application {
 
     private void startServer() {
         try {
-            ServerSocket server = new ServerSocket(5555);
+            ServerSocket server = new ServerSocket(1234);
             while (true) {
                 Socket client = server.accept();
                 ObjectInputStream in = new ObjectInputStream(client.getInputStream());

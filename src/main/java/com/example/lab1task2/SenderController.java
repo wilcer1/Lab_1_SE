@@ -26,7 +26,7 @@ public class SenderController {
         Button sendButton = new Button(textField.getText());
         SerializableObject object = new SerializableObject(sendButton);
         try {
-            Socket socket = new Socket("localhost", 5555);
+            Socket socket = new Socket("92.32.239.192", 1234);
             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
             out.writeObject(object);
             out.close();
